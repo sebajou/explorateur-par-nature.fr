@@ -36,18 +36,18 @@ class Child(models.Model):
         db_table = 'child'
 
 
-class Myuser(AbstractUser, models.Model):
+class Users(AbstractUser, models.Model):
     USERNAME_FIELD = 'email'
     email = models.EmailField(_('email address'), unique=True) # changes email to unique and blank to false
     REQUIRED_FIELDS = ['username'] # removes email from REQUIRED_FIELDS
-    id_myuser = models.AutoField(primary_key=True)
+    id_users = models.AutoField(primary_key=True)
     id_tribut = models.ForeignKey('Tribut', models.DO_NOTHING, db_column='id_tribut', null=True)
     image_profil = models.CharField(max_length=100, blank=True, null=True)
     is_author = models.BooleanField(null=True)
 
     class Meta:
         managed = True
-        db_table = 'myuser'
+        db_table = 'users'
 
 
 class Tribut(models.Model):
@@ -72,7 +72,7 @@ class Trophies(models.Model):
 class TutorLink(models.Model):
     id_tutor_link = models.AutoField(primary_key=True)
     id_child = models.ForeignKey(Child, models.DO_NOTHING, db_column='id_child')
-    id_myuser = models.ForeignKey(Myuser, models.DO_NOTHING, db_column='id_myuser')
+    id_users = models.ForeignKey(Users, models.DO_NOTHING, db_column='id_users')
 
     class Meta:
         managed = True

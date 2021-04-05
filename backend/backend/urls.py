@@ -31,7 +31,7 @@ router.register(r'ListEquipments', ArticlesAppView.ListEquipmentView, 'ListEquip
 router.register(r'ListVideos', ArticlesAppView.ListVideoView, 'ListVideo')
 router.register(r'Videos', ArticlesAppView.VideoView, 'Video')
 
-router.register(r'Myusers', UsersAppView.MyuserView, 'Myuser')
+router.register(r'Userss', UsersAppView.UsersView, 'Users')
 router.register(r'Badges', UsersAppView.BadgeView, 'Badge')
 router.register(r'Tributs', UsersAppView.TributView, 'Tribut')
 router.register(r'Childs', UsersAppView.ChildView, 'Child')

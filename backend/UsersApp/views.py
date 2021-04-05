@@ -2,18 +2,18 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import viewsets
-from .serializers import MyuserSerializer, BadgeSerializer, TributSerializer, ChildSerializer, TrophiesSerializer, \
+from .serializers import UsersSerializer, BadgeSerializer, TributSerializer, ChildSerializer, TrophiesSerializer, \
     TutorLinkSerializer
-from .models import Myuser, Badge, Tribut, Child, Trophies, TutorLink
+from .models import Users, Badge, Tribut, Child, Trophies, TutorLink
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
 
-class MyuserView(viewsets.ModelViewSet):
+class UsersView(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    serializer_class = MyuserSerializer
-    queryset = Myuser.objects.all()
+    serializer_class = UsersSerializer
+    queryset = Users.objects.all()
 
 
 class BadgeView(viewsets.ModelViewSet):

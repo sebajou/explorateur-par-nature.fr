@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-AUTH_USER_MODEL = 'UsersApp.Myuser'
+AUTH_USER_MODEL = 'UsersApp.Users'
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ex_par_nat_v2_db',
+        'NAME': 'ex_par_nat_v3_db',
         'USER': 'sebajou',
         'PASSWORD': '3333argh',
         'HOST': 'localhost',

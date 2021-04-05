@@ -1,5 +1,5 @@
 from django.db import models
-from UsersApp.models import Badge, Myuser
+from UsersApp.models import Badge, Users
 
 
 # Create your models here.
@@ -22,12 +22,12 @@ class Article(models.Model):
 class Bibliography(models.Model):
     id_bibliography = models.AutoField(primary_key=True)
     id_article = models.ForeignKey(Article, models.DO_NOTHING, db_column='id_article')
-    id_myuser = models.ForeignKey('UsersApp.Myuser', models.DO_NOTHING, db_column='id_myuser')
+    id_users = models.ForeignKey('UsersApp.Users', models.DO_NOTHING, db_column='id_users')
 
     class Meta:
         managed = True
         db_table = 'bibliography'
-        unique_together = (('id_bibliography', 'id_article', 'id_myuser'),)
+        unique_together = (('id_bibliography', 'id_article', 'id_users'),)
 
 
 class Equipment(models.Model):

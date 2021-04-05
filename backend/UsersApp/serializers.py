@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Myuser, Badge, Tribut, Child, Trophies, TutorLink
+from .models import Users, Badge, Tribut, Child, Trophies, TutorLink
 
 
-class MyuserSerializer(serializers.ModelSerializer):
+class UsersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Myuser
+        model = Users
         fields = ('is_superuser', 'is_staff', 'is_active', 'id_myuser', 'username', 'first_name',
                   'last_name', 'image_profil', 'is_author', 'last_login', 'date_joined', 'email', 'id_tribut')
 
