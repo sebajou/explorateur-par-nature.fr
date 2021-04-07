@@ -19,6 +19,7 @@ from rest_framework import routers
 from ArticlesApp import views as ArticlesAppView
 from UsersApp import views as UsersAppView
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # Myuser, Badge, Tribut, Child, Trophies, TutorLink
 router = routers.DefaultRouter()
@@ -43,4 +44,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
