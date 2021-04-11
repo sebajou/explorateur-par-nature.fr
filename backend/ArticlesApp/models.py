@@ -22,7 +22,7 @@ class Article(models.Model):
 class Bibliography(models.Model):
     id_bibliography = models.AutoField(primary_key=True)
     id_article = models.ForeignKey(Article, models.DO_NOTHING, db_column='id_article')
-    id_users = models.ForeignKey('UsersApp.Users', models.DO_NOTHING, db_column='id_users')
+    id_users = models.ForeignKey('UsersApp.Users', models.DO_NOTHING, db_column='id')
 
     class Meta:
         managed = True
