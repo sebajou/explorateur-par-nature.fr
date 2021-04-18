@@ -37,9 +37,9 @@ class Child(models.Model):
 
 
 class Users(AbstractUser, models.Model):
-    USERNAME_FIELD = 'email'
+    # USERNAME_FIELD = 'email'
     email = models.EmailField(_('email address'), unique=True) # changes email to unique and blank to false
-    REQUIRED_FIELDS = ['username'] # removes email from REQUIRED_FIELDS
+    # REQUIRED_FIELDS = ['username'] # removes email from REQUIRED_FIELDS
     id = models.AutoField(primary_key=True)
     id_tribut = models.ForeignKey('Tribut', models.DO_NOTHING, db_column='id_tribut', null=True)
     image_profil = models.CharField(max_length=100, blank=True, null=True)

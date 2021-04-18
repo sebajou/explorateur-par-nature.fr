@@ -3,12 +3,28 @@ from .models import Users, Badge, Tribut, Child, Trophies, TutorLink
 
 
 class UsersSerializer(serializers.ModelSerializer):
+
+    email = serializers.EmailField(
+        required=True
+    )
+    username = serializers.CharField()
+    password = serializers.CharField(min_length=8, write_only=True)
+
     class Meta:
         model = Users
-        fields = ('is_superuser', 'is_staff', 'is_active', 'id_users', 'username', 'first_name',
+        fields = ('is_superuser', 'is_staff', 'is_active', 'id', 'username', 'first_name', 'password',
                   'last_name', 'image_profil', 'is_author', 'last_login', 'date_joined', 'email', 'id_tribut')
-        read_only_fields = ['id_users', 'is_superuser', 'is_staff', 'is_active', 'last_login', 'date_joined',
+        read_only_fields = ['id', 'is_superuser', 'is_staff', 'is_active', 'last_login', 'date_joined',
                             'is_author']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop('password', None)
+        instance = self.Meta.model(**validated_data)  # as long as the fields are the same, we can just use this
+        if password is not None:
+            instance.set_password(password)
+        instance.save()
+        return instance
 
 
 class BadgeSerializer(serializers.ModelSerializer):
