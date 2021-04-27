@@ -1,0 +1,35 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn info
+
+PATH: 
+  /home/sebastien/.local/share/virtualenvs/explorateur-par-nature-lsaQlSAl/bin:/home/sebastien/anaconda3/bin:/home/sebastien/anaconda3/condabin:/home/sebastien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.22.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  TypeError: Cannot read property '1' of null
+      at parsePackageName (/usr/lib/node_modules/yarn/lib/cli.js:100696:29)
+      at Object.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:88351:90)
+      at Generator.next (<anonymous>)
+      at step (/usr/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "dependencies": {
+      "axios": "^0.21.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

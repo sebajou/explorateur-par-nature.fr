@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import axiosInstance from "./AxiosAPI";
+import '../styles/Login.css';
+import '../styles/styles.css';
 
 class Login extends Component {
     constructor(props) {
@@ -47,23 +50,34 @@ class Login extends Component {
         }
     }
 
-    render() {
-        return (
-            <div>
-                Login
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
-                        <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-                    </label>
-                    <label>
-                        Password:
-                        <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-                    </label>
-                    <input type="submit" value="Submit"/>
-                </form>
-            </div>
-        )
-    }
-}
+  render() {
+
+  const { message, isOpen, onClose} = this.props;
+
+  if (!isOpen) return null;
+
+  return ReactDOM.createPortal(
+        <div className="modal">
+            Connexion Tuteur
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                  Username:
+                  <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+              </label>
+              <label>
+                  Password:
+                  <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+              </label>
+              <input type="submit" value="Submit"/>
+            </form>
+            <h2>{message}</h2>
+            <button className="close" onClick={onClose}>
+                Close
+            </button>
+        </div>,
+        document.body
+      );
+  }
+};
+
 export default Login;
