@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import Login from './Login';
 import Hello from './Hello';
+// import Essai from './Essai';
 
 function Welcome() {
     // const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ function Welcome() {
 
         <div>
             <Login
-              message="Bienvenue sur Explorateur par Nature !"
+              message="Connexion Tuteur"
               isOpen={openp}
               onClose={() => setOpenP(false)}
             />

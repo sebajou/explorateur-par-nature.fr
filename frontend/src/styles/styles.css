@@ -1,11 +1,32 @@
-.container {
+/*.container {
   position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: rgb(221, 213, 204);
+}*/
+
+input[type="text"] {
+text-align: center;
 }
+
+input[type="password"] {
+text-align: center;
+}
+
+.center-block {
+ display: block;
+ margin : 0 auto;
+ text-align: center;
+}
+
+.center {
+ margin : 0 auto;
+ width: 50%;
+ text-align: center;
+}
+
 .button-container {
   margin: 25px;
 }
@@ -17,6 +38,7 @@
   background-color: #000000;
   border-radius: 20px/50px;
   cursor: pointer;
+  left: 50%;
   outline: 0px transparent !important;
 }
 .button:hover {
@@ -42,8 +64,8 @@
 }
 .modal .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 0px;
+  right: 0px;
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;
@@ -55,5 +77,6 @@
 }
 .modal .content {
   max-height: 30%;
+  width: 50%;
   overflow: auto;
 }
