@@ -7,8 +7,6 @@ from .serializers import UsersSerializer, BadgeSerializer, TributSerializer, Chi
 from .models import Users, Badge, Tribut, Child, Trophies, TutorLink
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-# Create your views here.
-
 
 class HelloWorldView(APIView):
 
