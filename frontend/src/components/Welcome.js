@@ -1,50 +1,31 @@
-import React, { Component, Modal } from "react";
+import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import Login from './Login';
-// import Hello from './Hello';
+import Hello from './Hello';
+// import Essai from './Essai';
 
-class Welcome extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {setOpen: false, openp: false};
+function Welcome() {
+    // const [open, setOpen] = useState(false);
+    const [openp, setOpenP] = useState(false);
 
-        this.handleShow = this.handleShow.bind(this);
-        this.handleHide = this.handleHide.bind(this);
-    }
+    return (
+        <div className="container">
+          <div className="button-container">
+            <button className="button" onClick={() => setOpenP(true)}>
+              Open Portal Modal
+            </button>
+          </div>
 
-    handleShow () {
-        this.setState({setOpen: true});
-    }
-
-    handleHide () {
-        this.setState({setOpen: false});
-    }
-
-    render() {
-        // const [open, setOpen] = useState(false);
-        // const [openp, setOpenP] = useState(false);
-        const { openp, setOpenP } = this.state;
-        const modal = this.state.showModal ? (
-        <Modal>
+        <div>
             <Login
-              message="Bienvenue sur Explorateur par Nature !"
+              message="Connexion Tuteur"
               isOpen={openp}
               onClose={() => setOpenP(false)}
             />
-            <button onClick={this.handleHide}>Hide modal</button>
-        </Modal>
-
-        ) : null;
-
-        return (
-            <div className="container">
-              <div className="button-container">
-                <button onClick={this.handleShow}>Show modal</button>
-                {modal}
-              </div>
-            </div>
-        );
-    }
+            <Hello />
+        </div>
+    </div>
+    );
 }
 
 export default Welcome
