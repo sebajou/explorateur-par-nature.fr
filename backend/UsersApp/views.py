@@ -6,6 +6,7 @@ from .serializers import UsersSerializer, BadgeSerializer, TributSerializer, Chi
     TutorLinkSerializer
 from .models import Users, Badge, Tribut, Child, Trophies, TutorLink
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class HelloWorldView(APIView):
@@ -25,6 +26,22 @@ class CustomUserCreate(APIView):
                 json = serializer.data
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LogoutAndBlacklistRefreshTokenForUserView(APIView):
+    permission_classes = (AllowAny,)
+    authentication_classes = ()
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            print('token : ', request.data["refresh_token"])
+            token.blacklist()
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            print('token : ', request.data["refresh_token"])
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class UsersView(viewsets.ModelViewSet):
