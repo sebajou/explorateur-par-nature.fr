@@ -18,11 +18,17 @@ class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitWThen = this.handleSubmitWThen.bind(this);
+        // this.handleToggleConnectedClick = this.handleToggleConnectedClick.bind(this);
     }
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
+
+    // handleToggleConnectedClick(event) {
+    //     this.props({isConnected: !this.props.isConnected})
+    //     console.log(this.props.isConnected);
+    //   }
 
     handleSubmitWThen(event){
         event.preventDefault();
@@ -96,7 +102,7 @@ class Login extends Component {
               </label>
           </div>
           <div className="row center-block col-12">
-                <input className="btn btn-outline-secondary" type="submit" value="Connexion"  variant="primary"/>
+                <input className="btn btn-outline-secondary" type="submit" value="Connexion" variant="primary"/>
           </div>
         </form>
     </div>

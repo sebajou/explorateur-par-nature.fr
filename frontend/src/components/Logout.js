@@ -20,7 +20,8 @@ class Logout extends Component{
         this.setState({[event.target.name]: event.target.value});
     }
 
-    async handleLogout() {
+    async handleLogout(event) {
+        event.preventDefault();
         try {
             const response = await axiosInstance.post('/blacklist/', {
                 "refresh_token": localStorage.getItem("refresh_token")

@@ -70,26 +70,26 @@ class Signup extends Component{
                 </div>
 
                 <div className="row">
-                    Créer un profil :
+                    Créer un profil : 
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Nom d'utilisateur :
+                            Nom d'utilisateur : 
                             <input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                         </label>
                         <label>
-                            Courriel :
+                            Courriel : 
                             <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                         </label>
                         <label>
-                            Prenom :
+                            Prenom : 
                             <input name="first_name" type="text" value={this.state.first_name} onChange={this.handleChange}/>
                         </label>
                         <label>
-                            Nom de famille :
+                            Nom de famille : 
                             <input name="last_name" type="text" value={this.state.last_name} onChange={this.handleChange}/>
                         </label>
                         <label>
-                            Password:
+                            Password: 
                             <input name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                         </label>
                         <input type="submit" value="Submit"/>
