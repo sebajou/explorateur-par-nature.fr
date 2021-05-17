@@ -3,25 +3,23 @@ import React, { Component } from 'react';
 import Login from './Login';
 import Hello from './Hello';
 // import Essai from './Essai';
-// import axiosInstance from "./AxiosAPI";
+import axiosInstance from "./AxiosAPI";
 import Signup from './Signup';
-import Logout from './Logout';
 
 
 class Welcome extends Component {
   constructor(props) {
       super(props);
 
-      this.state = {openp: false, opens: false, openl: false};
+      this.state = {openp: false, opens: false};
 
-      /* this.handleLogout = this.handleLogout.bind(this); */
+      this.handleLogout = this.handleLogout.bind(this);
       this.handleToggleLoginClick = this.handleToggleLoginClick.bind(this);
       this.handleToggleSignupClick = this.handleToggleSignupClick.bind(this);
-      this.handleToggleLogoutClick = this.handleToggleLogoutClick.bind(this);
   }
 
 
-/*   async handleLogout() {
+  async handleLogout() {
     try {
         const response = await axiosInstance.post('/blacklist/', {
             "refresh_token": localStorage.getItem("refresh_token")
@@ -36,14 +34,10 @@ class Welcome extends Component {
     catch (e) {
         console.log(e);
     }
-  }; */
+  };
 
   handleToggleLoginClick(event) {
     this.setState({openp: !this.state.openp});
-  }
-
-  handleToggleLogoutClick(event) {
-    this.setState({openl: !this.state.openl});
   }
 
   handleToggleSignupClick(event) {
@@ -51,7 +45,7 @@ class Welcome extends Component {
   }
 
   render() {
-    const { openp, opens, openl } = this.state
+    const { openp, opens } = this.state
 
     return (
         <div className="container">
@@ -61,7 +55,7 @@ class Welcome extends Component {
             </button>
           </div>
           <div className="button-container">
-            <button className="button" onClick={this.handleToggleLogoutClick}>
+            <button className="button" onClick={this.handleLogout}>
               Logout
             </button>
           </div>
@@ -77,11 +71,6 @@ class Welcome extends Component {
               message="Connexion Tuteur"
               isOpen={openp}
               onClose={this.handleToggleLoginClick}
-            />
-            <Logout
-              message="Voulez vous vous déconnecter ? "
-              isOpen={openl}
-              onClose={this.handleToggleLogoutClick}
             />
             <Signup
               message="Création d'un profil de tuteur"
