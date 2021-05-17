@@ -12,8 +12,8 @@ library.add(faTimes);
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {username: "", password: ""};
-        this.state = { message: "Connexion Tuteur"}
+        this.state = {username: "", password: "", connected: false};
+        // this.state = { message: "Connexion Tuteur"}
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,6 +34,8 @@ class Login extends Component {
                     axiosInstance.defaults.headers['Authorization'] = "JWT " + result.data.access;
                     localStorage.setItem('access_token', result.data.access);
                     localStorage.setItem('refresh_token', result.data.refresh);
+                    this.setState({connected: true});
+                    console.log(this.state.connected)
                 }
             ).catch (error => {
                 throw error;
@@ -50,6 +52,8 @@ class Login extends Component {
             axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
+            this.setState({connected: true});
+            console.log(this.state.connected)
             return response;
         } catch (error) {
             throw error;
@@ -59,9 +63,11 @@ class Login extends Component {
   render() {
 
   const { message, isOpen, onClose} = this.props;
+  
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
+      
     <div className="modal">
     <div className="container">
         <div className="row">
