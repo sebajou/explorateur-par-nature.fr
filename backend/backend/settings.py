@@ -94,6 +94,9 @@ DATABASES = {
         'PASSWORD': '3333argh',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_ex_par_nat_v4_db',
+        },
     }
 }
 

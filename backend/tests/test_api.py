@@ -8,7 +8,6 @@ class TestAPIAccess:
     """Test access to API on Users, Badge, Tribut, Child, Trophies, TutorLink,
     Article, Bibliography, Equipment, Image, ListImage, ListEquipment, ListVideo, Video"""
 
-    @pytest.mark.django_db
     def test_api_access_users(self):
         response = c.get('http://127.0.0.1:8000/api/Userss/')
         assert response.status_code == 401
