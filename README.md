@@ -79,5 +79,9 @@ and writing on an important part of the database.
 
 ## V - Front
 
+React front are divide in two page:
++ Users page. 
++ Authors page. 
+
 ### V-1 - List of components
 
