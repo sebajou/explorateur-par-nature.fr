@@ -3,6 +3,15 @@ build-job:
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
 
+pytest:
+  stage: test
+  script:
+    - pytest --junitxml=report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+
 test-job1:
   stage: test
   script:
