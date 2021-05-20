@@ -3,9 +3,8 @@ build-job:
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
     - apt-get update -qy
-    - apt-get install -y python-dev python-pip
-    - pip install -r requirements.txt
-    - source venv/bin/activate
+    - apt-get install python3-pip python3-dev libpq python3-testresources
+    - pip3 install -r requirements.txt
 
 pytest:
   stage: test
