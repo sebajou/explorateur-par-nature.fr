@@ -26,7 +26,7 @@ SECRET_KEY = 'hm&9%=*96_$rdej$cy7f*z4c&6b7_zsjakj8_mmk1kf^yf0z!%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -86,20 +86,30 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'ex_par_nat_v4_db',
+#         'USER': 'sebajou',
+#         'PASSWORD': '3333argh',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#         'TEST': {
+#             'NAME': 'test_ex_par_nat_v4_db',
+#         },
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ex_par_nat_v4_db',
-        'USER': 'sebajou',
-        'PASSWORD': '3333argh',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'TEST': {
-            'NAME': 'test_ex_par_nat_v4_db',
-        },
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
