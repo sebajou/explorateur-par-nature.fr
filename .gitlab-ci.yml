@@ -33,6 +33,7 @@ build-job:
 pytest:
   stage: test
   script:
+    - cd backend
     - pytest
 
 deploy-prod:
