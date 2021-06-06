@@ -24,12 +24,13 @@ before_script:
   # Uncomment next line if your Django app needs a JS runtime:
   # - apt-get update -q && apt-get install nodejs -yqq
   - pip3 install -r requirements.txt
+  - docker info
 
 build-job:
   stage: build
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
-
+    - docker-compose up
 pytest:
   stage: test
   script:
