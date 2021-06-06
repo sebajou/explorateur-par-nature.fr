@@ -20,6 +20,7 @@ cache:
 # This is a basic example for a gem or script which doesn't use
 # services such as redis or postgres
 before_script:
+  - apt-get update
   - apt-get install docker-ce docker-ce-cli containerd.io
   - python -V  # Print out python version for debugging
   # Uncomment next line if your Django app needs a JS runtime:
