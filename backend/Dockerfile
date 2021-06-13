@@ -1,5 +1,9 @@
 # syntax=docker/dockerfile:1
 FROM python:3.9
+
+#RUN adduser myuser
+#USER myuser
+
 ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 COPY requirements.txt /code/

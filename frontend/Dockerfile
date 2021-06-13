@@ -1,5 +1,8 @@
 FROM node:14.16.1
 
+#RUN adduser myuser
+#USER myuser
+
 WORKDIR /code
 COPY package.json .
 
